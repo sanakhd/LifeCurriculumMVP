@@ -1,0 +1,106 @@
+{
+  "lesson_id": "44126927-d845-4d07-9f25-7a168fdc9e83",
+  "program_id": "a4ba2549-48ed-4bd0-a2f3-a752f4032f44",
+  "day_number": 2,
+  "generated_at": "2025-09-03T06:47:06.765586",
+  "voice_mapping": {
+    "Host A": "alloy",
+    "Host B": "echo",
+    "Host C": "fable",
+    "Host D": "onyx",
+    "Host E": "nova",
+    "Host F": "shimmer"
+  },
+  "audio_files": [
+    {
+      "chunk_index": 0,
+      "audio_id": "a1f36d26-8abd-434a-bc33-18bae80b5816",
+      "speaker": "Host A",
+      "voice": "alloy",
+      "file_path": "program_audios/44126927-d845-4d07-9f25-7a168fdc9e83/a1f36d26-8abd-434a-bc33-18bae80b5816.wav",
+      "duration_seconds": 1,
+      "regenerated": true
+    },
+    {
+      "chunk_index": 1,
+      "audio_id": "12e09838-09fc-4566-87c4-254028f20b61",
+      "speaker": "Host B",
+      "voice": "echo",
+      "file_path": "program_audios/44126927-d845-4d07-9f25-7a168fdc9e83/12e09838-09fc-4566-87c4-254028f20b61.wav",
+      "duration_seconds": 1,
+      "regenerated": true
+    },
+    {
+      "chunk_index": 2,
+      "audio_id": "9c718891-6cac-4e7d-aa1f-0d38968b8aaa",
+      "speaker": "Host A",
+      "voice": "alloy",
+      "file_path": "program_audios/44126927-d845-4d07-9f25-7a168fdc9e83/9c718891-6cac-4e7d-aa1f-0d38968b8aaa.wav",
+      "duration_seconds": 1,
+      "regenerated": true
+    },
+    {
+      "chunk_index": 3,
+      "audio_id": "962cba15-07d0-442a-a802-92eaa05fd41d",
+      "speaker": "Host B",
+      "voice": "echo",
+      "file_path": "program_audios/44126927-d845-4d07-9f25-7a168fdc9e83/962cba15-07d0-442a-a802-92eaa05fd41d.wav",
+      "duration_seconds": 1,
+      "regenerated": true
+    },
+    {
+      "chunk_index": 4,
+      "audio_id": "bdfe22ba-9815-4642-8eef-2aeaa27ab545",
+      "speaker": "Host A",
+      "voice": "alloy",
+      "file_path": "program_audios/44126927-d845-4d07-9f25-7a168fdc9e83/bdfe22ba-9815-4642-8eef-2aeaa27ab545.wav",
+      "duration_seconds": 1,
+      "regenerated": true
+    },
+    {
+      "chunk_index": 5,
+      "audio_id": "1d7bf79d-179d-4da3-b611-a55b79889770",
+      "speaker": "Host B",
+      "voice": "echo",
+      "file_path": "program_audios/44126927-d845-4d07-9f25-7a168fdc9e83/1d7bf79d-179d-4da3-b611-a55b79889770.wav",
+      "duration_seconds": 1,
+      "regenerated": true
+    },
+    {
+      "chunk_index": 6,
+      "audio_id": "e32c578c-aec5-4348-854f-485515e1d266",
+      "speaker": "Host A",
+      "voice": "alloy",
+      "file_path": "program_audios/44126927-d845-4d07-9f25-7a168fdc9e83/e32c578c-aec5-4348-854f-485515e1d266.wav",
+      "duration_seconds": 1,
+      "regenerated": true
+    },
+    {
+      "chunk_index": 7,
+      "audio_id": "7aa16b0e-3610-4979-9509-058c9cda3824",
+      "speaker": "Host B",
+      "voice": "echo",
+      "file_path": "program_audios/44126927-d845-4d07-9f25-7a168fdc9e83/7aa16b0e-3610-4979-9509-058c9cda3824.wav",
+      "duration_seconds": 1,
+      "regenerated": true
+    },
+    {
+      "chunk_index": 8,
+      "audio_id": "8dd05f21-eb6d-4f6e-9779-4580d7582f42",
+      "speaker": "Host A",
+      "voice": "alloy",
+      "file_path": "program_audios/44126927-d845-4d07-9f25-7a168fdc9e83/8dd05f21-eb6d-4f6e-9779-4580d7582f42.wav",
+      "duration_seconds": 1,
+      "regenerated": true
+    },
+    {
+      "chunk_index": 9,
+      "audio_id": "8be05c9b-7b8a-482d-962f-1264029a009b",
+      "speaker": "Host B",
+      "voice": "echo",
+      "file_path": "program_audios/44126927-d845-4d07-9f25-7a168fdc9e83/8be05c9b-7b8a-482d-962f-1264029a009b.wav",
+      "duration_seconds": 1,
+      "regenerated": true
+    }
+  ]
+}

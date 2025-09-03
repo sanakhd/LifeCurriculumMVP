@@ -1,0 +1,744 @@
+/* Progress Page Redesign - Apple/Shopify Inspired Design */
+
+/* ==============================================
+   CSS VARIABLES & DESIGN TOKENS - EXISTING COLOR SCHEME
+   ============================================== */
+.progress-page {
+  /* Using existing CSS variables from your app */
+  --progress-bg-primary: var(--bg-primary);
+  --progress-bg-secondary: var(--bg-secondary, var(--bg-primary));
+  --progress-bg-glass: var(--bg-glass, rgba(255, 255, 255, 0.05));
+  --progress-surface: var(--bg-glass, rgba(255, 255, 255, 0.05));
+  --progress-surface-raised: var(--bg-glass, rgba(255, 255, 255, 0.05));
+  --progress-border-light: var(--border-tertiary);
+  --progress-border-medium: var(--border-secondary, var(--border-tertiary));
+  --progress-text-primary: var(--text-primary);
+  --progress-text-secondary: var(--text-secondary);
+  --progress-text-muted: var(--text-muted);
+  --progress-accent: var(--accent-pop);
+  --progress-accent-light: var(--accent-tertiary);
+  --progress-success: var(--accent-secondary, #34d399);
+  --progress-success-light: rgba(102, 126, 234, 0.1);
+  --progress-warning: #f59e0b;
+  --progress-warning-light: rgba(245, 158, 11, 0.1);
+  --progress-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --progress-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --progress-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --progress-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --progress-radius-sm: var(--radius-md, 8px);
+  --progress-radius-md: var(--radius-lg, 12px);
+  --progress-radius-lg: var(--radius-xl, 16px);
+  --progress-radius-xl: var(--radius-xl, 20px);
+  --progress-spacing-xs: var(--spacing-xs, 4px);
+  --progress-spacing-sm: var(--spacing-sm, 8px);
+  --progress-spacing-md: var(--spacing-md, 16px);
+  --progress-spacing-lg: var(--spacing-lg, 24px);
+  --progress-spacing-xl: var(--spacing-xl, 32px);
+  --progress-spacing-2xl: var(--spacing-2xl, 48px);
+  --progress-spacing-3xl: var(--spacing-3xl, 64px);
+}
+
+/* ==============================================
+   MAIN PROGRESS PAGE LAYOUT
+   ============================================== */
+.progress-page {
+  min-height: 100vh;
+  background: var(--progress-bg-primary);
+  color: var(--progress-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.progress-header {
+  background: linear-gradient(135deg, var(--progress-surface) 0%, var(--progress-bg-glass) 100%);
+  border-bottom: 1px solid var(--progress-border-light);
+  padding: var(--progress-spacing-3xl) 0 var(--progress-spacing-2xl);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.progress-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--progress-spacing-lg);
+  text-align: center;
+}
+
+.progress-header h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 600;
+  color: var(--progress-text-primary);
+  margin-bottom: var(--progress-spacing-md);
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--progress-text-primary) 0%, var(--progress-text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.progress-header p {
+  font-size: 1.125rem;
+  color: var(--progress-text-secondary);
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.progress-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--progress-spacing-2xl) var(--progress-spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--progress-spacing-3xl);
+}
+
+/* ==============================================
+   LOADING STATE - MODERN SHIMMER
+   ============================================== */
+.progress-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+}
+
+.progress-loading .loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--progress-border-light);
+  border-top: 2px solid var(--progress-accent);
+  border-radius: 50%;
+  animation: progressSpin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+  margin-bottom: var(--progress-spacing-lg);
+}
+
+.progress-loading p {
+  color: var(--progress-text-secondary);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* ==============================================
+   SECTION STYLING - CLEANER HIERARCHY
+   ============================================== */
+.progress-content section {
+  background: var(--progress-surface);
+  border-radius: var(--progress-radius-xl);
+  padding: var(--progress-spacing-2xl);
+  border: 1px solid var(--progress-border-light);
+  box-shadow: var(--progress-shadow-sm);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-content section:hover {
+  box-shadow: var(--progress-shadow-md);
+  transform: translateY(-1px);
+}
+
+.progress-content h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--progress-text-primary);
+  margin-bottom: var(--progress-spacing-xl);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: var(--progress-spacing-md);
+}
+
+.progress-content h2::before {
+  content: '';
+  width: 4px;
+  height: 24px;
+  background: linear-gradient(135deg, var(--progress-accent) 0%, var(--progress-success) 100%);
+  border-radius: 2px;
+}
+
+/* ==============================================
+   OVERVIEW STATS - APPLE-STYLE CARDS
+   ============================================== */
+.overview-stats .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--progress-spacing-lg);
+}
+
+.stat-card {
+  background: var(--progress-surface-raised);
+  border: 1px solid var(--progress-border-light);
+  border-radius: var(--progress-radius-lg);
+  padding: var(--progress-spacing-xl);
+  display: flex;
+  align-items: center;
+  gap: var(--progress-spacing-lg);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--progress-shadow-sm);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--progress-accent) 0%, var(--progress-success) 50%, var(--progress-warning) 100%);
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-card:hover {
+  border-color: var(--progress-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--progress-shadow-lg);
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--progress-accent-light);
+  border-radius: var(--progress-radius-md);
+  color: var(--progress-accent);
+  flex-shrink: 0;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--progress-text-primary);
+  margin-bottom: var(--progress-spacing-xs);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--progress-text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==============================================
+   LEARNING TIMELINE - CARD-BASED APPROACH
+   ============================================== */
+.learning-timeline {
+  background: none !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.timeline-container {
+  display: grid;
+  gap: var(--progress-spacing-lg);
+}
+
+.timeline-item {
+  background: var(--progress-surface);
+  border: 1px solid var(--progress-border-light);
+  border-radius: var(--progress-radius-lg);
+  padding: var(--progress-spacing-xl);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--progress-shadow-sm);
+  display: block;
+}
+
+.timeline-item::after {
+  display: none;
+}
+
+.timeline-item:hover {
+  border-color: var(--progress-accent);
+  transform: translateY(-1px);
+  box-shadow: var(--progress-shadow-md);
+}
+
+.timeline-marker {
+  display: none;
+}
+
+.timeline-content {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+.timeline-item.completed {
+  border-left: 4px solid var(--progress-success);
+}
+
+.timeline-item.in-progress {
+  border-left: 4px solid var(--progress-accent);
+}
+
+.timeline-item.abandoned {
+  border-left: 4px solid var(--progress-text-muted);
+  opacity: 0.6;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--progress-spacing-lg);
+  gap: var(--progress-spacing-md);
+}
+
+.timeline-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--progress-text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.status-badge {
+  padding: var(--progress-spacing-xs) var(--progress-spacing-sm);
+  border-radius: var(--progress-radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  border: 1px solid transparent;
+}
+
+.status-badge.completed {
+  background: var(--progress-success-light);
+  color: var(--progress-success);
+  border-color: rgba(52, 211, 153, 0.2);
+}
+
+.status-badge.in-progress {
+  background: var(--progress-accent-light);
+  color: var(--progress-accent);
+  border-color: rgba(0, 122, 255, 0.2);
+}
+
+.status-badge.abandoned {
+  background: rgba(156, 163, 175, 0.1);
+  color: var(--progress-text-muted);
+  border-color: rgba(156, 163, 175, 0.2);
+}
+
+.timeline-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--progress-spacing-md);
+}
+
+.timeline-dates {
+  display: flex;
+  flex-direction: column;
+  gap: var(--progress-spacing-xs);
+}
+
+.timeline-dates span {
+  font-size: 0.875rem;
+  color: var(--progress-text-secondary);
+  font-weight: 400;
+}
+
+.timeline-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--progress-spacing-md);
+}
+
+.timeline-progress > span {
+  font-size: 0.875rem;
+  color: var(--progress-text-secondary);
+  font-weight: 600;
+  min-width: 80px;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--progress-border-light);
+  border-radius: var(--progress-radius-sm);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--progress-accent) 0%, var(--progress-success) 100%);
+  border-radius: var(--progress-radius-sm);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-meta {
+  display: flex;
+  gap: var(--progress-spacing-sm);
+  flex-wrap: wrap;
+}
+
+.timeline-meta span {
+  font-size: 0.75rem;
+  padding: var(--progress-spacing-xs) var(--progress-spacing-sm);
+  border-radius: var(--progress-radius-sm);
+  border: 1px solid var(--progress-border-light);
+  background: var(--progress-bg-glass);
+  color: var(--progress-text-secondary);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.engagement.high {
+  color: var(--progress-success);
+  border-color: rgba(52, 211, 153, 0.3);
+  background: var(--progress-success-light);
+}
+
+.engagement.medium {
+  color: var(--progress-accent);
+  border-color: rgba(0, 122, 255, 0.3);
+  background: var(--progress-accent-light);
+}
+
+.engagement.low {
+  color: var(--progress-text-muted);
+  border-color: rgba(156, 163, 175, 0.3);
+  background: rgba(156, 163, 175, 0.1);
+}
+
+.context {
+  color: var(--progress-text-secondary);
+  border-color: var(--progress-border-light);
+  background: var(--progress-bg-glass);
+}
+
+/* ==============================================
+   LEARNING INSIGHTS - SOPHISTICATED CARDS
+   ============================================== */
+.learning-insights .insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--progress-spacing-xl);
+}
+
+.insight-card {
+  background: var(--progress-surface-raised);
+  border: 1px solid var(--progress-border-light);
+  border-radius: var(--progress-radius-lg);
+  padding: var(--progress-spacing-xl);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--progress-shadow-sm);
+}
+
+.insight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--progress-accent) 0%, var(--progress-success) 50%, var(--progress-warning) 100%);
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.insight-card:hover {
+  border-color: var(--progress-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--progress-shadow-lg);
+}
+
+.insight-card:hover::before {
+  opacity: 1;
+}
+
+.insight-header {
+  display: flex;
+  align-items: center;
+  gap: var(--progress-spacing-md);
+  margin-bottom: var(--progress-spacing-xl);
+  padding-bottom: var(--progress-spacing-md);
+  border-bottom: 1px solid var(--progress-border-light);
+}
+
+.insight-header svg {
+  color: var(--progress-accent);
+  flex-shrink: 0;
+}
+
+.insight-header h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--progress-text-primary);
+  margin: 0;
+}
+
+.insight-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--progress-spacing-lg);
+}
+
+.insight-metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--progress-spacing-sm);
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--progress-accent);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: var(--progress-text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--progress-spacing-sm);
+  margin-top: var(--progress-spacing-xs);
+}
+
+.tag {
+  padding: var(--progress-spacing-xs) var(--progress-spacing-sm);
+  background: var(--progress-accent-light);
+  color: var(--progress-accent);
+  border-radius: var(--progress-radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(0, 122, 255, 0.2);
+  text-transform: capitalize;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tag:hover {
+  background: var(--progress-accent);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--progress-shadow-md);
+}
+
+/* ==============================================
+   RESPONSIVE DESIGN - MOBILE FIRST
+   ============================================== */
+@media (max-width: 768px) {
+  .progress-header {
+    padding: var(--progress-spacing-2xl) 0 var(--progress-spacing-xl);
+  }
+  
+  .progress-content {
+    padding: var(--progress-spacing-xl) var(--progress-spacing-md);
+    gap: var(--progress-spacing-2xl);
+  }
+  
+  .progress-content section {
+    padding: var(--progress-spacing-xl);
+  }
+  
+  .overview-stats .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--progress-spacing-md);
+  }
+  
+  .stat-card {
+    padding: var(--progress-spacing-lg);
+  }
+  
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .stat-value {
+    font-size: 1.75rem;
+  }
+  
+  .learning-insights .insights-grid {
+    grid-template-columns: 1fr;
+    gap: var(--progress-spacing-lg);
+  }
+  
+  .timeline-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--progress-spacing-sm);
+  }
+  
+  .timeline-progress {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--progress-spacing-sm);
+  }
+  
+  .timeline-progress > span {
+    min-width: auto;
+  }
+  
+  .timeline-meta {
+    gap: var(--progress-spacing-xs);
+  }
+  
+  .timeline-meta span {
+    font-size: 0.6875rem;
+    padding: 2px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-header-content {
+    padding: 0 var(--progress-spacing-md);
+  }
+  
+  .progress-header h1 {
+    font-size: 2rem;
+  }
+  
+  .progress-header p {
+    font-size: 1rem;
+  }
+  
+  .timeline-item {
+    padding: var(--progress-spacing-lg);
+  }
+  
+  .insight-card {
+    padding: var(--progress-spacing-lg);
+  }
+  
+  .progress-content section {
+    padding: var(--progress-spacing-lg);
+  }
+  
+  .stat-card {
+    padding: var(--progress-spacing-md);
+    gap: var(--progress-spacing-md);
+  }
+}
+
+/* ==============================================
+   ANIMATIONS & MICRO-INTERACTIONS
+   ============================================== */
+@keyframes progressSpin {
+  0% { 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    transform: rotate(360deg); 
+  }
+}
+
+/* Smooth entrance animations */
+.progress-content section {
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.progress-content section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.progress-content section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.progress-content section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered stat card animations */
+.stat-card {
+  animation: fadeInScale 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.15s; }
+.stat-card:nth-child(3) { animation-delay: 0.2s; }
+.stat-card:nth-child(4) { animation-delay: 0.25s; }
+
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Timeline items entrance */
+.timeline-item {
+  animation: slideInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Insight cards entrance */
+.insight-card {
+  animation: fadeInScale 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.insight-card:nth-child(1) { animation-delay: 0.1s; }
+.insight-card:nth-child(2) { animation-delay: 0.2s; }
+.insight-card:nth-child(3) { animation-delay: 0.3s; }
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

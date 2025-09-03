@@ -1,0 +1,467 @@
+/* ========== 1) Layout & Background ========== */
+
+.create-program-container {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.create-program-container::before,
+.create-program-container::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.create-program-container::before {
+  width: 400px;
+  height: 400px;
+  background: var(--gradient-primary);
+  top: 15%;
+  left: -15%;
+  animation: float1 8s ease-in-out infinite;
+}
+
+.create-program-container::after {
+  width: 300px;
+  height: 300px;
+  background: var(--gradient-secondary);
+  bottom: 15%;
+  right: -15%;
+  animation: float2 10s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -20px) scale(1.1);
+  }
+}
+
+@keyframes float2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-20px, 15px) scale(0.9);
+  }
+}
+
+/* ========== 2) Main Content ========== */
+
+.create-program-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-3xl) var(--spacing-2xl);
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ========== 3) Progress Bar ========== */
+
+.create-program-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--spacing-3xl);
+  position: relative;
+  gap: var(--spacing-2xl);
+}
+
+.create-program-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-tertiary);
+  border: 2px solid var(--border-tertiary);
+  color: var(--text-tertiary);
+  font-weight: 400;
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-md);
+  transition: all var(--transition-base);
+}
+
+.step-number.active {
+  background: var(--gradient-pop);
+  border: 2px solid color-mix(in oklab, var(--accent-pop) 65%, white);
+  color: #ffffff;
+  box-shadow: 
+    0 0 20px color-mix(in oklab, var(--accent-pop) 35%, transparent),
+    0 4px 15px color-mix(in oklab, var(--accent-pop) 20%, transparent);
+}
+
+.step-number.completed {
+  background: var(--accent-pop);
+  border: 2px solid var(--accent-pop);
+  color: #ffffff;
+}
+
+.step-label {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  max-width: 100px;
+}
+
+/* ========== 4) Step Content ========== */
+
+.step-content {
+  background: var(--bg-glass);
+  backdrop-filter: blur(30px);
+  border: 1px solid var(--card-border, var(--border-tertiary));
+  border-radius: var(--radius-3xl);
+  padding: var(--spacing-3xl);
+  margin-bottom: var(--spacing-2xl);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.step-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(158, 171, 151, 0.5), transparent);
+}
+
+.step-content h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: 300;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: -0.5px;
+}
+
+.step-content > p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+  font-weight: 300;
+  margin-bottom: var(--spacing-2xl);
+  line-height: 1.6;
+}
+
+/* ========== 5) Form Elements ========== */
+
+.text-input {
+  width: 100%;
+  min-height: 120px;
+  padding: var(--spacing-lg);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-tertiary);
+  border-radius: var(--radius-2xl);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  resize: vertical;
+  transition: all var(--transition-base);
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: var(--accent-pop);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent-pop) 20%, transparent);
+}
+
+.text-input::placeholder {
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.character-count {
+  text-align: right;
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-md);
+  font-weight: 300;
+}
+
+.character-count .requirement {
+  color: var(--accent-pop);
+}
+
+/* ========== 6) Context Options ========== */
+
+.context-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.context-option {
+  background: var(--bg-glass);
+  border: 2px solid var(--border-tertiary);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-xl);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-align: left;
+}
+
+.context-option:hover {
+  border-color: var(--accent-pop);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px color-mix(in oklab, var(--accent-pop) 15%, transparent);
+}
+
+.context-option.selected {
+  border-color: var(--accent-pop);
+  background: color-mix(in oklab, var(--accent-pop) 5%, var(--bg-glass));
+  box-shadow: 0 0 20px color-mix(in oklab, var(--accent-pop) 20%, transparent);
+}
+
+.context-option.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--bg-glass);
+  border-color: var(--border-tertiary);
+}
+
+.context-option.locked:hover {
+  border-color: var(--border-tertiary);
+  transform: none;
+  box-shadow: none;
+}
+
+.context-option.locked .option-header input[type="radio"] {
+  cursor: not-allowed;
+}
+
+.context-option.locked .option-header label {
+  cursor: not-allowed;
+  color: var(--text-muted);
+}
+
+.option-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.option-header input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent-pop);
+}
+
+.option-header label {
+  color: var(--text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.option-description {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 300;
+  line-height: 1.5;
+  margin-left: 32px;
+}
+
+/* ========== 7) Step Actions ========== */
+
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.back-btn,
+.next-btn {
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-lg);
+  font-weight: 300;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--border-tertiary);
+}
+
+.back-btn {
+  background: var(--bg-glass);
+  color: var(--text-secondary);
+}
+
+.back-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-pop);
+  transform: translateY(-2px);
+}
+
+.next-btn {
+  background: var(--gradient-pop);
+  color: #ffffff;
+  border: 1px solid var(--accent-pop);
+  flex: 1;
+  max-width: 300px;
+  margin-left: auto;
+}
+
+.next-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.next-btn:not(.disabled):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px color-mix(in oklab, var(--accent-pop) 25%, black);
+}
+
+.next-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.6s;
+}
+
+.next-btn:not(.disabled):hover::before {
+  left: 100%;
+}
+
+/* ========== 8) Loading Screen ========== */
+
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 80px;
+  height: 80px;
+  border: 3px solid var(--border-tertiary);
+  border-top: 3px solid var(--accent-pop);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--spacing-2xl);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-screen h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: 300;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  background: var(--accent-pop);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.loading-screen p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* ========== 9) Responsive ========== */
+
+@media (max-width: 768px) {
+  .create-program-content {
+    padding: var(--spacing-2xl) var(--spacing-lg);
+  }
+
+  .create-program-progress {
+    gap: var(--spacing-lg);
+  }
+
+  .step-number {
+    width: 50px;
+    height: 50px;
+    font-size: var(--font-size-base);
+  }
+
+  .step-content {
+    padding: var(--spacing-2xl);
+  }
+
+  .step-content h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .step-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .next-btn {
+    max-width: none;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .create-program-progress {
+    gap: var(--spacing-md);
+  }
+
+  .step-number {
+    width: 45px;
+    height: 45px;
+    font-size: var(--font-size-sm);
+  }
+
+  .step-label {
+    font-size: var(--font-size-xs);
+    max-width: 80px;
+  }
+
+  .step-content {
+    padding: var(--spacing-xl);
+  }
+
+  .step-content h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .context-options {
+    gap: var(--spacing-md);
+  }
+
+  .context-option {
+    padding: var(--spacing-lg);
+  }
+}

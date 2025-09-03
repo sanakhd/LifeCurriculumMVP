@@ -1,0 +1,1 @@
+"""LifeCurriculum FastAPI Backend Service"""
