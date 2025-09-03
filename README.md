@@ -32,7 +32,7 @@ AI-powered learning platform that transforms any topic into engaging conversatio
 - [Figma MVP Wireframes](https://www.figma.com/design/ma3igLL0oVEr4RmaHwZgBI/MVP-Wireframe---LifeCurriculum-V2?node-id=0-1&t=7DlvmfvSC6vE0H79-1)
 
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Frontend Setup
 ```bash
