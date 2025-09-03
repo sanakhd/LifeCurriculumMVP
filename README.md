@@ -5,9 +5,10 @@ This is the MVP (Minimum Viable Product) for **LifeCurriculum**, containing both
 ---
 
 ## 📂 Project Structure
-LifeCurriculumMVP/
+```LifeCurriculumMVP/
 ├── LifeCurriculumFE/   # Frontend code
 └── LifeCurriculumBE/   # Backend code
+```
 
 - **Frontend (LifeCurriculumFE)**
   - Built with: React TS + Vite
