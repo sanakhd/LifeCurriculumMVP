@@ -24,12 +24,6 @@ AI-powered learning platform that transforms any topic into engaging conversatio
   - Built with: Python + FastAPI
   - Provides the API and handles database or server logic.
 
-- **Frontend (LifeCurriculumFE)**
-  - Built with: React TS + Vite
-  - Handles the user interface and client-side logic
-- **Backend (LifeCurriculumBE)**
-  - Built with: Python + FastAPI
-  - Provides the API and handles AI integration
 
 ## 🚀 Quick Start
 
