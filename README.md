@@ -1,6 +1,6 @@
 # LifeCurriculum MVP
 
-AI-powered learning platform that transforms any topic into engaging 3-minute conversations between two hosts, adapted to your context and schedule.
+AI-powered learning platform that transforms any topic into engaging conversations between two hosts, adapted to your context and schedule.
 
 ##Key Features
 - **Multi-Context Learning**: Home, Workout, and Driving modes with adaptive interactions
