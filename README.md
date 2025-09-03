@@ -24,12 +24,12 @@ AI-powered learning platform that transforms any topic into engaging conversatio
   - Provides the API and handles database or server logic.
 
 ## Documentation:
-Product Documentation: https://www.figma.com/design/3dnp3cUNPKFSnQkRh6lbrL/ABP-Demo--Product-Documentation?node-id=52-1501&t=oscjr2nqInn4RV01-1
-Demo Slides: https://www.canva.com/design/DAGx3vUi53Y/cXF7m1PU3M52axuxG_1Scg/edit?utm_content=DAGx3vUi53Y&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+- [Product Documentation](https://www.figma.com/design/3dnp3cUNPKFSnQkRh6lbrL/ABP-Demo--Product-Documentation?node-id=52-1501&t=oscjr2nqInn4RV01-1)  
+- [Demo Slides](https://www.canva.com/design/DAGx3vUi53Y/cXF7m1PU3M52axuxG_1Scg/edit?utm_content=DAGx3vUi53Y&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)  
 
 ## Design: 
-Figma Mockup (Drafts using FigmaMake): https://www.figma.com/make/sNp6BokGthaYVEC92DyHC8/Mock-Up-Version-of-LifeCurriculum--IDEA-ENHANCER?node-id=0-1&t=XgP127SIleWPM5u7-1
-Figma MVP: https://www.figma.com/design/ma3igLL0oVEr4RmaHwZgBI/MVP-Wireframe---LifeCurriculum-V2?node-id=0-1&t=7DlvmfvSC6vE0H79-1
+- [Figma Mockup (Drafts)](https://www.figma.com/make/sNp6BokGthaYVEC92DyHC8/Mock-Up-Version-of-LifeCurriculum--IDEA-ENHANCER?node-id=0-1&t=XgP127SIleWPM5u7-1)  
+- [Figma MVP Wireframes](https://www.figma.com/design/ma3igLL0oVEr4RmaHwZgBI/MVP-Wireframe---LifeCurriculum-V2?node-id=0-1&t=7DlvmfvSC6vE0H79-1)
 
 
 ## 🚀 Quick Start
