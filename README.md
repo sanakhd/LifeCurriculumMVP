@@ -24,7 +24,7 @@ AI-powered learning platform that transforms any topic into engaging conversatio
   - Provides the API and handles database or server logic.
 
 ## Documentation:
-- [Product Documentation](https://www.figma.com/design/3dnp3cUNPKFSnQkRh6lbrL/ABP-Demo--Product-Documentation?node-id=52-1501&t=oscjr2nqInn4RV01-1)  
+- [Product Documentation](https://www.figma.com/design/3dnp3cUNPKFSnQkRh6lbrL/ABP-Demo--Product-Documentation?node-id=2-553&t=WNU3LmNPEoOeMSIu-1)  
 - [Demo Slides](https://www.canva.com/design/DAGx3vUi53Y/cXF7m1PU3M52axuxG_1Scg/edit?utm_content=DAGx3vUi53Y&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)  
 
 ## Design: 
